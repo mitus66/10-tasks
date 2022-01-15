@@ -35,7 +35,7 @@
                            <div class="d-flex flex-wrap demo demo-h-spacing mt-3 mb-3">
 
                                <?php
-                               //
+                               // создаем массив данных
                                $staff = [
                                        [
                                           'imgLink' => 'img/demo/authors/sunny.png',
@@ -80,7 +80,7 @@
 
                                        ]
                                ];
-
+                                // вывлдим массив в цикле
                                foreach ($staff as $persom):
                                ?>
 
