@@ -75,7 +75,7 @@
                                         ?>
 
                                         <tr>
-                                            <th scope="row">1</th>
+                                            <th scope="row"><?php echo $user['id'];?></th>
                                             <td><?php echo $user['firstname'];?></td>
                                             <td><?php echo $user['lastname'];?></td>
                                             <td><?php echo $user['username'];?></td>
