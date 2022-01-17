@@ -26,55 +26,17 @@
 
     if(isset($_POST)){
         // Готовим запрос
-        $sql = 'SELECT * FROM text';
+        $sql = 'INSERT INTO text (msg) VALUES (:msg)';
         $sth = $dbh->prepare($sql);
 
         // Выполняем запрос:
-        $sth->execute();
-
-        // Получаем от данные результата запроса:
-        $msg = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $sth->execute([':msg' => $_POST['text']]);
+        var_dump($_POST['text']);
     }
+    header("refresh: 3; url=task_9.php");
 
     ?>
-        <main id="js-page-content" role="main" class="page-content">
 
-            <div class="col-md-6">
-                <div id="panel-1" class="panel">
-                    <div class="panel-hdr">
-                        <h2>
-                            Задание
-                        </h2>
-                        <div class="panel-toolbar">
-                            <button class="btn btn-panel waves-effect waves-themed" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
-                            <button class="btn btn-panel waves-effect waves-themed" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
-                        </div>
-                    </div>
-                    <div class="panel-container show">
-                        <div class="panel-content">
-                            <div class="panel-content">
-                                <div class="form-group">
-                                    <form action="task_9sub.php" method="POST">
-                                        <label class="form-label" for="simpleinput">Text</label>
-                                        <input type="text" id="simpleinput" class="form-control" name="text">
-                                        <button class="btn btn-success mt-3" type="submit">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        
 
-        <script src="js/vendors.bundle.js"></script>
-        <script src="js/app.bundle.js"></script>
-        <script>
-            // default list filter
-            initApp.listFilter($('#js_default_list'), $('#js_default_list_filter'));
-            // custom response message
-            initApp.listFilter($('#js-list-msg'), $('#js-list-msg-filter'));
-        </script>
     </body>
 </html>
