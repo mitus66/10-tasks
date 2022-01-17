@@ -34,9 +34,8 @@
                         );
 
                         // Готовим запрос
-                        $sth = $dbh->prepare(
-                            'SELECT * FROM user'
-                        );
+                        $sql = 'SELECT * FROM user';
+                        $sth = $dbh->prepare($sql);
 
                         // Выполняем запрос:
                         $sth->execute();
@@ -80,9 +79,9 @@
                                             <td><?php echo $user['lastname'];?></td>
                                             <td><?php echo $user['username'];?></td>
                                             <td>
-                                                <a href="show.php?id=" class="btn btn-info">Смотреть</a>
-                                                <a href="edit.php?id=" class="btn btn-warning">Изменить</a>
-                                                <a href="delete.php?id=" class="btn btn-danger">Удалить</a>
+                                                <a href="show.php?id=<?php echo $user['id'];?>" class="btn btn-info">Смотреть</a>
+                                                <a href="edit.php?id=<?php echo $user['id'];?>" class="btn btn-warning">Изменить</a>
+                                                <a href="delete.php?id=<?php echo $user['id'];?>" class="btn btn-danger">Удалить</a>
                                             </td>
                                         </tr>
 
