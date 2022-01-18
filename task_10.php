@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +37,12 @@
                         <div class="panel-content">
                             <div class="panel-content">
                                 <div class="form-group">
+                                    <?php
+                                        if(isset($_SESSION['flash'])) {
+                                            echo($_SESSION['flash']);
+                                            unset($_SESSION['flash']);
+                                        }
+                                    ?>
                                     <form action="task_10_2.php" method="POST">
                                         <label class="form-label" for="simpleinput">Text</label>
                                         <input type="text" id="simpleinput" class="form-control" name="text">
