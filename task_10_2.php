@@ -57,7 +57,7 @@
                             $msg = $sth->fetch(PDO::FETCH_ASSOC);
 
                             // ищем есть ли среди имеющихся новое сообщение,
-                            if(!empty($msg)) { 
+                            if(!empty($msg)) {
                             // если соответствие найдено, вывести флеш-уведомление
                                 echo '
                                     <div class="alert alert-danger fade show" role="alert">
