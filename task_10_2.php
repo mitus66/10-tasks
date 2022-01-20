@@ -29,8 +29,8 @@ session_start();
     // ищем есть ли среди имеющихся новое сообщение,
     if(!empty($msg)) {
     // если соответствие найдено, вывести флеш-уведомление
-        echo $flash;
         $_SESSION['flash'] = $flash;
+        echo $flash;
         header("Location: /task_10.php");
         exit;
     }else{
@@ -40,7 +40,7 @@ session_start();
             $sth = $dbh->prepare($sql);
 
             // Выполняем запрос:
-            $sth->execute([':msg' => $_POST['text']]);
+            $sth->execute(['msg' => $_POST['text']]);
         }
     }
 

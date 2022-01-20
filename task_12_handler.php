@@ -2,13 +2,13 @@
 session_start();
 
 $msg = $_POST['text'];
-var_dump($msg);
+//var_dump($msg);
 
 $flash = '<div class="alert alert-info fade show" role="alert">'. $msg .'<br></div>';
 
 if (!empty($msg)) {
-    echo $flash;
     $_SESSION['flash'] = $flash;
+    echo $flash;
     header("Location: /task_12.php");
     exit;
 } else {

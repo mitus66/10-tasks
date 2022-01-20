@@ -31,8 +31,8 @@ session_start();
     // ищем есть ли среди имеющихся новое сообщение,
     if(!empty($email)) {
         // если соответствие найдено, вывести флеш-уведомление
-        echo $flash;
         $_SESSION['flash'] = $flash;
+        echo $flash;
         header("Location: /task_11.php");
         exit;
     }else{
@@ -41,7 +41,7 @@ session_start();
         $sth = $dbh->prepare($sql);
 
         // Выполняем запрос:
-        $sth->execute([':email' => $_POST['email'], ':password' => $hashed_password]);
+        $sth->execute(['email' => $_POST['email'], 'password' => $hashed_password]);
     }
 
 // перенаправить пользователя на стартовую страницу
