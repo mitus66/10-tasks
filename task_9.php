@@ -30,8 +30,8 @@
         $sth = $dbh->prepare($sql);
 
         // Выполняем запрос:
-        $sth->execute([':msg' => $_POST['text']]);
-        var_dump($_POST['text']);
+        $sth->execute(['msg' => $_POST['text']]);
+        //var_dump($_POST['text']);
     }
     header("refresh: 3; url=task_9.php");
 
