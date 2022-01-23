@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$uploadFileName = time();
+if(!isset($_FILES['pictures'])) header("Location: /task_15_1.php");
 
 // Создаем объект-соединение с базой данных
 $dbh = new PDO(
@@ -13,6 +13,7 @@ $dbh = new PDO(
 // ADD FILES
 if (isset($_FILES['userfile'])
     && 0 == $_FILES['userfile']['error']) {
+    $uploadFileName = time();
     $res = move_uploaded_file(
         $_FILES['userfile']['tmp_name'],
         __DIR__ . '/pictures/' . $uploadFileName .'.jpg'
@@ -36,7 +37,7 @@ if (isset($_FILES['userfile'])
 }
 
 // DEL FILES
-if (isset($_POST)) {
+if ((isset($_POST)) and !empty($_POST)) {
     $id = (array_key_first($_POST));
     $imgForDel = array_key_last($_POST);
 //    var_dump($_POST);
